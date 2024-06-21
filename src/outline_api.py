@@ -40,6 +40,13 @@ def get_all_keys():
     return keys_list
 
 
+def delete_all_keys():
+   
+    keys = outline_client.get_keys()
+    for key in keys:
+        outline_client.delete_key(key.key_id)
+
+
 def get_key_by_id(id: str):
     
     key = outline_client.get_key(id)

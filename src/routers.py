@@ -30,6 +30,15 @@ def get_keys(response: Response):
         return {"Error": str(e)}
     
 
+@all_keys_router.delete("/")
+def delete_keys(response: Response):   
+    try:
+        delete_all_keys()
+        response.status_code = 204
+    except Exception as e:
+        response.status_code = 500
+        return {"Error": str(e)}
+    
 
 @key_router.get("/{id}")
 def get_key(id: str, response: Response):
