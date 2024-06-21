@@ -106,9 +106,6 @@ def get_server_information():
     usage_value = get_format_value(total_month_usage)
     usage_units = get_unit(total_month_usage)
 
-    keys = outline_client.get_keys()
-    keys_quantity = len(keys)
-
     return_data = {"name": info['name'], 
                    "port": info['portForNewAccessKeys'], 
                    "host": info['hostnameForAccessKeys'], 
@@ -120,7 +117,6 @@ def get_server_information():
                    "limit_value": limit_value,
                    "limit_units": limit_units,
                    "metrics": info['metricsEnabled'],
-                   "keys": keys_quantity, 
                    "usage_bytes": total_month_usage,
                    "usage_value": float(usage_value),
                    "usage_units": usage_units}
